@@ -2,7 +2,7 @@
 A web app to shorten URLs.
 
 ![](goshort.png)
-![](goshort-mobile.png =400x400)
+![](goshort-mobile.png | width=400)
 
 ### Installation & Requirements
 
