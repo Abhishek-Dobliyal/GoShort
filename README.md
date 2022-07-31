@@ -26,6 +26,7 @@ npm run serve
 
 ### To-Do
 
+- [ ] Send URL to backend for shortening and retrieving the response
 - [ ] Add wait time animation
 - [ ] Add notification sound 
 - [ ] Fix issues (if any)
