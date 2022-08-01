@@ -29,7 +29,7 @@
 
   <div
     class="container grid w-screen place-items-center mx-auto my-10 text-1xl"
-    v-if="displayResponse"
+    v-if="showResponse"
   >
     <div class="container grid w-screen place-items-center mx-auto my-5">
       <qrcode-vue
@@ -50,7 +50,7 @@
 
   <div
     class="container grid w-3/4 place-items-center mx-auto text-center"
-    v-if="validateInput"
+    v-if="showInputAlert"
   >
     <div
       class="flex p-4 mb-4 text-sm rounded-lg dark:bg-black dark:text-white"
@@ -92,14 +92,17 @@ export default {
       title: "GoShort",
       subTitle: "Shorten Your URLs In One GO",
       inputURL: "",
-      displayResponse: false,
+      showResponse: false,
       qrCodeSize: 130,
-      response: null,
+      response: {
+        custom_short: "asdads",
+        expiry: 10,
+      },
       shortenURLEndpoint: "localhost:3000/shorten",
     };
   },
   computed: {
-    validateInput() {
+    showInputAlert() {
       if (this.inputURL.length <= 10) {
         return true;
       }
@@ -109,16 +112,20 @@ export default {
   methods: {
     fetchShortURL() {
       axios
-        .get(shortenURLEndpoint)
+        .post(shortenURLEndpoint, { url: this.inputURL })
         .then((res) => {
           this.response = res.data;
-          console.log(this.response);
+          var audio = new Audio(require("@/assets/ping.mp3"));
+          audio.play();
+
+          if (!this.showInputAlert) {
+            this.showResponse = true;
+          }
         })
         .catch((err) => {
+          this.showErrorAlert = true;
           console.error(err);
         });
-
-      this.displayResponse = true;
     },
   },
   created() {
