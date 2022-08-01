@@ -9,6 +9,8 @@ A web app to shorten URLs.
 - [NodeJS](https://nodejs.org/en/)
 - [VueJS](https://www.npmjs.com/package/vue)
 - [GoLang](https://go.dev/)
+- [Fiber](https://docs.gofiber.io/)
+- [Go-Redis](https://github.com/go-redis/redis)
 
 ### Usage
 
