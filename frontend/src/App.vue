@@ -11,7 +11,7 @@
       <div class="flex items-center border-b border-black py-2">
         <input
           class="appearance-none bg-transparent border-none w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none placeholder-black"
-          type="text"
+          type="url"
           placeholder="Enter/Paste your URL ..."
           aria-label="url"
           v-model="inputURL"
