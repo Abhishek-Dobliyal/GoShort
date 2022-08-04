@@ -94,10 +94,7 @@ export default {
       inputURL: "",
       showResponse: false,
       qrCodeSize: 130,
-      response: {
-        custom_short: "asdads",
-        expiry: 10,
-      },
+      response: null,
       shortenURLEndpoint: "localhost:3000/shorten",
     };
   },
